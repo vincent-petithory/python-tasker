@@ -1,12 +1,21 @@
-commit 3bb28cdf2b4e34c266fc43641b43eb9dc1e70f20
+commit 390dd5e77dc87ef9486ac1f341ed41ec937b284a
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Mar 1 12:47:21 2001 +0100
+
+    Make tasker to not generate py[co] files
+
+ bin/tasker |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit b55d38778fcd989d337a61fc161af281cd8bf2b2
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Mar 1 12:40:37 2001 +0100
 
     Switch setup.py to Python 3
 
- ChangeLog |   14 ++++++++++++--
+ ChangeLog |   15 +++++++++++++--
  setup.py  |    8 ++------
- 2 files changed, 14 insertions(+), 8 deletions(-)
+ 2 files changed, 15 insertions(+), 8 deletions(-)
 
 commit b96b986f804479f6780065728b96489ecfc089be
 Author: Vincent Petithory <vincent.petithory@gmail.com>
