@@ -1,13 +1,24 @@
-commit 7dd0530450115f8f294749b03bd72aa95cacc55c
+commit 3bb28cdf2b4e34c266fc43641b43eb9dc1e70f20
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Mar 1 12:40:37 2001 +0100
+
+    Switch setup.py to Python 3
+
+ ChangeLog |   14 ++++++++++++--
+ setup.py  |    8 ++------
+ 2 files changed, 14 insertions(+), 8 deletions(-)
+
+commit b96b986f804479f6780065728b96489ecfc089be
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Tue Mar 1 03:06:17 2011 +0100
 
     Add the original exception type information in TaskError
 
+ ChangeLog          |   16 ++++++++++++++--
  bin/tasker         |    2 +-
  tasker/__init__.py |    7 +++++--
  tasks.py           |    2 +-
- 3 files changed, 7 insertions(+), 4 deletions(-)
+ 4 files changed, 21 insertions(+), 6 deletions(-)
 
 commit 8fc094b1b4ca9f58e075b93586e2dcaaf8c602fb
 Author: Vincent Petithory <vincent.petithory@gmail.com>
