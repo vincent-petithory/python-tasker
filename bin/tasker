@@ -6,7 +6,7 @@ import sys
 
 import optparse
 
-from tasker import task_list, Task, TaskError, DEFAULT_TASKNAME, TASK_MODULE, TASK_MODULENAME, TASKS
+from tasker import TASK_LIST, Task, TaskError, DEFAULT_TASKNAME, TASK_MODULE, TASK_MODULENAME, TASKS
 
 parser = optparse.OptionParser()
 parser.add_option('-f', '--file', dest='task_module',
@@ -29,7 +29,7 @@ except Exception:
     raise
 
 # exit if not tasks defined
-if len(task_list) == 0:
+if len(TASK_LIST) == 0:
     sys.stdout.write('No tasks in « %s ». Exit.\n' % DEFAULT_TASKNAME)
     sys.exit(0)
 
@@ -38,7 +38,7 @@ if len(TASKS) == 0:
     try:
         DEFAULT_TASKNAME = getattr(TASK_MODULE, 'DEFAULT')
     except AttributeError:
-        t1 = task_list[0]
+        t1 = TASK_LIST[0]
         DEFAULT_TASKNAME = t1[len(t1)-1]
     else:
         try:
@@ -49,8 +49,6 @@ if len(TASKS) == 0:
             sys.exit(os.EX_NOTFOUND)
         
     
-
-
 
 if len(TASKS) == 0:
     TASKS = [DEFAULT_TASKNAME]
@@ -63,7 +61,7 @@ def get_task_with_name(name):
             return task_object
     return None
 
-for raw_task in task_list:
+for raw_task in TASK_LIST:
     n = len(raw_task)
     main_taskname = raw_task[n-1]
     dep_tasknames = []

@@ -2,11 +2,10 @@
 
 version_info = (0,1,0)
 
-
 import sys
 import os
 
-task_list = []
+TASK_LIST = []
 DEFAULT_TASKNAME = None
 TASK_MODULE = None
 TASK_MODULENAME = None

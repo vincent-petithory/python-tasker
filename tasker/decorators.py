@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-from tasker import task_list
+from tasker import TASK_LIST
 from functools import wraps
 import collections
 
@@ -12,7 +12,7 @@ class task(object):
             if isinstance(f, collections.Callable):
                 # the decorator is called without args,
                 # hence 1st arg is our function to decorate
-                task_list.append((f.__name__, ))
+                TASK_LIST.append((f.__name__, ))
                 self._decorate(f)
             else:
                 self.depends = args
@@ -21,7 +21,7 @@ class task(object):
 
     def __call__(self, f):
         t = tuple(reversed(self.depends)) + (f.__name__, )
-        task_list.append(t)
+        TASK_LIST.append(t)
         return self._decorate(f)
     
     def _decorate(self, f):
