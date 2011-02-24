@@ -22,7 +22,7 @@ TASKS = args
 try:
     TASK_MODULE = __import__(TASK_MODULENAME)
 except ImportError as ie:
-    sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n'  % (TASK_MODULENAME, os.getcwdu(), ie))
+    sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n'  % (TASK_MODULENAME, os.getcwd(), ie))
     sys.exit(os.EX_NOINPUT)
 except Exception:
     sys.stderr.write('Exception caught in your « %s » init code.\n' % TASK_MODULENAME)

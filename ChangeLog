@@ -1,13 +1,23 @@
-commit a4d01e475107d7c2f87b67f1aaa8b85b67e98c28
+commit b374efcd6e835dbfdd84f054704d8b3717b87c59
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Feb 24 14:02:46 2011 +0100
+
+    Applied change os.getcwdu() to os.getcwd()
+
+ bin/tasker |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit cdede1559dbb2c6e06541d794fdebf49a47552c7
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 14:01:27 2011 +0100
 
     Rename task_list references to TASK_LIST
 
+ ChangeLog            |   16 ++++++++++++++--
  bin/tasker           |   10 ++++------
  tasker/__init__.py   |    3 +--
  tasker/decorators.py |    6 +++---
- 3 files changed, 8 insertions(+), 11 deletions(-)
+ 4 files changed, 22 insertions(+), 13 deletions(-)
 
 commit c129df2eccb333309427b419252e28cd7d9f56f7
 Author: Vincent Petithory <vincent.petithory@gmail.com>
