@@ -1,4 +1,4 @@
-*.pyc
+*.py[co]
 build
 dist
 MANIFEST

@@ -1,4 +1,13 @@
-commit 8c38442fbdf75a2495aacefbab5d7c766d78d7c5
+commit ede694e95d746db31a6e78a7d2c1a999446cc24f
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Feb 24 02:34:34 2011 +0100
+
+    Add .py[co] to git ignore list.
+
+ .gitignore |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 649f6b9d6ff79148dc1f26ef8e1e090809e49d90
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Feb 23 18:00:22 2011 +0100
 
@@ -12,6 +21,7 @@ Date:   Wed Feb 23 18:00:22 2011 +0100
  .gitignore           |    5 +
  AUTHORS              |    1 +
  COPYING              |  675 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ ChangeLog            |   23 ++
  MANIFEST.in          |    9 +
  README               |    6 +
  bin/tasker           |   84 +++++++
@@ -20,4 +30,4 @@ Date:   Wed Feb 23 18:00:22 2011 +0100
  tasker/decorators.py |   31 +++
  tasker/utils.py      |   21 ++
  tasks.py             |   23 ++
- 11 files changed, 955 insertions(+), 0 deletions(-)
+ 12 files changed, 978 insertions(+), 0 deletions(-)
