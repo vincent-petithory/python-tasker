@@ -8,6 +8,17 @@ import optparse
 
 from tasker import TASK_LIST, Task, TaskError, DEFAULT_TASKNAME, TASK_MODULE, TASK_MODULENAME, TASKS
 
+import tasker.utils
+
+EXTRA_IMPORTS = {
+    'os': os,
+    'sys': sys,
+    'sh': tasker.utils.sh,
+    'shp': tasker.utils.shp,
+    'shell': tasker.utils.shell,
+    'shellp': tasker.utils.shellp,
+}
+
 parser = optparse.OptionParser()
 parser.add_option('-f', '--file', dest='task_module',
                   help='use FILE as the tasks file, defaults to «tasks»', default='tasks', metavar='FILE')
@@ -18,9 +29,9 @@ TASK_MODULENAME, ext = os.path.splitext(options.task_module)
 del ext
 TASKS = args
 
-
 try:
     TASK_MODULE = __import__(TASK_MODULENAME)
+    TASK_MODULE.__dict__.update(EXTRA_IMPORTS)
 except ImportError as ie:
     sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n'  % (TASK_MODULENAME, os.getcwd(), ie))
     sys.exit(os.EX_NOINPUT)

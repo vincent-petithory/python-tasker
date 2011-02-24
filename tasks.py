@@ -1,8 +1,5 @@
 #-*- coding:utf-8 -*-
-
-import os
-from tasker.decorators import task
-from tasker.utils import sh, shell, shp, shellp
+from tasker import task
 
 DEFAULT = 'main'
 

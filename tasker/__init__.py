@@ -62,3 +62,7 @@ class Task(object):
         except AttributeError:
             sys.stderr.write('Could not find function « %s » in « %s ».\n' % (self.name, DEFAULT_TASKNAME))
             raise
+
+# import this, as a shortcut when writing the tasks.py files
+from tasker.decorators import task
+

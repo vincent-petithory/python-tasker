@@ -1,11 +1,23 @@
-commit b374efcd6e835dbfdd84f054704d8b3717b87c59
+commit 0871831c282f43438c0c8cc99ea95fec17c326a1
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Feb 24 14:03:11 2011 +0100
+
+    Attempt at inserting auto imports of tasker elements in tasks.py
+
+ bin/tasker         |   13 ++++++++++++-
+ tasker/__init__.py |    4 ++++
+ tasks.py           |    5 +----
+ 3 files changed, 17 insertions(+), 5 deletions(-)
+
+commit 71b73f79af17b835890df703ead56a035a581376
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 14:02:46 2011 +0100
 
     Applied change os.getcwdu() to os.getcwd()
 
+ ChangeLog  |   14 ++++++++++++--
  bin/tasker |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 2 files changed, 13 insertions(+), 3 deletions(-)
 
 commit cdede1559dbb2c6e06541d794fdebf49a47552c7
 Author: Vincent Petithory <vincent.petithory@gmail.com>
