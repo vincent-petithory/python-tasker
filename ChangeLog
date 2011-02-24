@@ -1,16 +1,27 @@
-commit 3d970f3271187025511db558d7d0f4ef930f5e11
+commit 246186bb1147717e93dfe42e5b6065171ca15410
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Feb 24 13:25:18 2011 +0100
+
+    Enhance shell functions
+
+ tasker/utils.py |   31 ++++++++++++++++++++++---------
+ tasks.py        |    9 +++++++--
+ 2 files changed, 29 insertions(+), 11 deletions(-)
+
+commit c7ed38496eb8e026f87a5db7d399689c3cc5feb8
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 02:35:14 2011 +0100
 
     Migrate code to Python 3
 
+ ChangeLog            |   17 +++++++++++++++--
  bin/tasker           |   16 ++++++++--------
  tasker/__init__.py   |    6 +++---
  tasker/decorators.py |    3 ++-
  tasks.py             |    8 ++++----
- 4 files changed, 17 insertions(+), 16 deletions(-)
+ 5 files changed, 32 insertions(+), 18 deletions(-)
 
-commit a3237150a3fbf83239cb841faf3d6177f2482307
+commit d2a5fd9145689c6ef01c206e5ad57a6a4cb475e5
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 02:34:34 2011 +0100
 
@@ -20,9 +31,9 @@ Date:   Thu Feb 24 02:34:34 2011 +0100
  ChangeLog  |   14 ++++++++++++--
  2 files changed, 13 insertions(+), 3 deletions(-)
 
-commit 649f6b9d6ff79148dc1f26ef8e1e090809e49d90
+commit 5f74f06846366e1bd66902b555d64736729e62ae
 Author: Vincent Petithory <vincent.petithory@gmail.com>
-Date:   Wed Feb 23 18:00:22 2011 +0100
+Date:   Thu Feb 24 02:27:14 2011 +0100
 
     Initial commit
     

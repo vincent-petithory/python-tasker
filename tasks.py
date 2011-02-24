@@ -2,7 +2,7 @@
 
 import os
 from tasker.decorators import task
-from tasker.utils import sh, shell
+from tasker.utils import sh, shell, shp, shellp
 
 DEFAULT = 'main'
 
@@ -14,8 +14,13 @@ def main():
 @task()
 def hello():
     print('task:hello')
-    o,e,c = sh('echo "ok"')
+    o,e,c = shp('echo "ok"')
     print(o, e, c)
+    sh('echo "ok"')
+    
+    o,e,c = shellp('echo "ok"')
+    print(o, e, c)
+    shell('echo "ok"')
 
 @task()
 def clean():

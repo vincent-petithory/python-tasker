@@ -3,19 +3,32 @@
 import subprocess
 import shlex
 
-def _getcmd(*args):
+def sh(*args):
     raw_command = ' '.join(arg for arg in args)
     command = shlex.split(raw_command)
-    return command
+    return subprocess.call(command, shell=False)
 
-def _sh_with_pipe(*args, **kwargs):
-    shell = kwargs.get('shell')
-    p = subprocess.Popen(_getcmd(*args), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=shell)
+def shp(*args):
+    raw_command = ' '.join(arg for arg in args)
+    command = shlex.split(raw_command)
+    p = subprocess.Popen(
+        command,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=False
+    )
     stdout, stderr = p.communicate()
     return stdout, stderr, p.returncode
 
-def sh(*args):
-    return _sh_with_pipe(*args, shell=False)
+def shell(cmd):
+    return subprocess.call(cmd, shell=True)
 
-def shell(*args):
-    return _sh_with_pipe(*args, shell=True)
+def shellp(cmd):
+    p = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=True
+    )
+    stdout, stderr = p.communicate()
+    return stdout, stderr, p.returncode
