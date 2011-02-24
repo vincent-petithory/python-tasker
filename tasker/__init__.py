@@ -40,7 +40,7 @@ class Task(object):
             #print 'exec', type(self.func)
             self.func()
         except Exception as e:
-            #message = (u'Exception caught in task « %s »: %s\n' % (self.name, e)).encode('utf-8')
+            #message = 'Exception caught in task « %s »: %s\n' % (self.name, e)
             raise TaskError(str(e), self.name)
             sys.exit(os.EX_SOFTWARE)
     
@@ -56,10 +56,10 @@ class Task(object):
         # notify which deps could not be resolved
         unresolved_deps = set(self.namedepends).difference(set([t.name for t in self.depends]))
         if len(unresolved_deps) > 0:
-            sys.stderr.write((u'Could not resolve task(s) « %s ». Exit.\n' % u', '.join(unresolved_deps)).encode('utf-8'))
+            sys.stderr.write('Could not resolve task(s) « %s ». Exit.\n' % ', '.join(unresolved_deps))
             sys.exit(os.EX_SOFTWARE)
         try:
             self.func = getattr(module, self.name)
         except AttributeError:
-            sys.stderr.write((u'Could not find function « %s » in « %s ».\n' % (self.name, DEFAULT_TASKNAME)).encode('utf-8'))
+            sys.stderr.write('Could not find function « %s » in « %s ».\n' % (self.name, DEFAULT_TASKNAME))
             raise

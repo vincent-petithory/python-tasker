@@ -1,11 +1,24 @@
-commit ede694e95d746db31a6e78a7d2c1a999446cc24f
+commit 3d970f3271187025511db558d7d0f4ef930f5e11
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Feb 24 02:35:14 2011 +0100
+
+    Migrate code to Python 3
+
+ bin/tasker           |   16 ++++++++--------
+ tasker/__init__.py   |    6 +++---
+ tasker/decorators.py |    3 ++-
+ tasks.py             |    8 ++++----
+ 4 files changed, 17 insertions(+), 16 deletions(-)
+
+commit a3237150a3fbf83239cb841faf3d6177f2482307
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 02:34:34 2011 +0100
 
     Add .py[co] to git ignore list.
 
  .gitignore |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ ChangeLog  |   14 ++++++++++++--
+ 2 files changed, 13 insertions(+), 3 deletions(-)
 
 commit 649f6b9d6ff79148dc1f26ef8e1e090809e49d90
 Author: Vincent Petithory <vincent.petithory@gmail.com>

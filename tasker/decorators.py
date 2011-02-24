@@ -2,13 +2,14 @@
 
 from tasker import task_list
 from functools import wraps
+import collections
 
 class task(object):
 
     def __init__(self, *args, **kwargs):
         if len(args) > 0:
             f = args[0]
-            if callable(f):
+            if isinstance(f, collections.Callable):
                 # the decorator is called without args,
                 # hence 1st arg is our function to decorate
                 task_list.append((f.__name__, ))

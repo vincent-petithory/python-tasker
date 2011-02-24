@@ -8,16 +8,16 @@ DEFAULT = 'main'
 
 @task('hello', 'clean')
 def main():
-    print 'task:main'
+    print('task:main')
     raise AttributeError('error i want')
 
 @task()
 def hello():
-    print 'task:hello'
+    print('task:hello')
     o,e,c = sh('echo "ok"')
-    print repr(o), repr(e), repr(c)
+    print(o, e, c)
 
 @task()
 def clean():
-    print 'task:clean'
+    print('task:clean')
 
