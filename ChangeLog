@@ -1,0 +1,23 @@
+commit 8c38442fbdf75a2495aacefbab5d7c766d78d7c5
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Feb 23 18:00:22 2011 +0100
+
+    Initial commit
+    
+     * tasker executable to run a tasks.py task list
+     * logic to run tasks, unwrapping dependancy tree
+     * handling task errors, errors printing
+     * decorator to mark a function to be a task
+
+ .gitignore           |    5 +
+ AUTHORS              |    1 +
+ COPYING              |  675 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ MANIFEST.in          |    9 +
+ README               |    6 +
+ bin/tasker           |   84 +++++++
+ setup.py             |   35 +++
+ tasker/__init__.py   |   65 +++++
+ tasker/decorators.py |   31 +++
+ tasker/utils.py      |   21 ++
+ tasks.py             |   23 ++
+ 11 files changed, 955 insertions(+), 0 deletions(-)

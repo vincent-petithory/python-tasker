@@ -1,0 +1,6 @@
+# Features
+
+First target will be the default, unless a DEFAULT const is found
+if the function specified by DEFAULT does not exist, an exception is raised
+
+mark a function as a task, using a decorator

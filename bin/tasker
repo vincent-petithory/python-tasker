@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+#-*- coding:utf-8 -*-
+
+import os
+import sys
+
+import optparse
+
+from tasker import task_list, Task, TaskError, DEFAULT_TASKNAME, TASK_MODULE, TASK_MODULENAME, TASKS
+
+parser = optparse.OptionParser()
+parser.add_option('-f', '--file', dest='task_module',
+                  help=u'use FILE as the tasks file, defaults to «tasks»', default='tasks', metavar='FILE')
+
+(options, args) = parser.parse_args()
+
+TASK_MODULENAME, ext = os.path.splitext(options.task_module)
+del ext
+TASKS = args
+
+
+try:
+    TASK_MODULE = __import__(TASK_MODULENAME)
+except ImportError as ie:
+    sys.stderr.write((u'Could not import the « %s » file in the current directory « %s ».Reason: %s\n'  % (TASK_MODULENAME, os.getcwdu(), ie)).encode('utf-8'))
+    sys.exit(os.EX_NOINPUT)
+except Exception:
+    sys.stderr.write((u'Exception caught in your « %s » init code.\n' % TASK_MODULENAME).encode('utf-8'))
+    raise
+
+# exit if not tasks defined
+if len(task_list) == 0:
+    sys.stdout.write((u'No tasks in « %s ». Exit.\n' % DEFAULT_TASKNAME).encode('utf-8'))
+    sys.exit(0)
+
+# get the default target
+if len(TASKS) == 0:
+    try:
+        DEFAULT_TASKNAME = getattr(TASK_MODULE, 'DEFAULT')
+    except AttributeError:
+        t1 = task_list[0]
+        DEFAULT_TASKNAME = t1[len(t1)-1]
+    else:
+        try:
+            # check default task name exists, otherwise, exit
+            getattr(TASK_MODULE, DEFAULT_TASKNAME)
+        except AttributeError:
+            sys.stderr.write((u'Could not find the specified default task « %s ».\n' % DEFAULT_TASKNAME).encode('utf-8'))
+            sys.exit(os.EX_NOTFOUND)
+        
+    
+
+
+
+if len(TASKS) == 0:
+    TASKS = [DEFAULT_TASKNAME]
+
+task_objects = []
+
+def get_task_with_name(name):
+    for task_object in task_objects:
+        if task_object.name == name:
+            return task_object
+    return None
+
+for raw_task in task_list:
+    n = len(raw_task)
+    main_taskname = raw_task[n-1]
+    dep_tasknames = []
+    if n > 1:
+        dep_tasknames = raw_task[:n-1]
+    t = Task(name=main_taskname, namedepends=dep_tasknames)
+    task_objects.append(t)
+
+for task_object in task_objects:
+    task_object.resolve(task_objects, TASK_MODULE)
+
+for task_name in TASKS:
+    task = get_task_with_name(task_name)
+    try:
+        task.process()
+    except TaskError as te:
+        sys.stderr.write((u'** tasker: Exception caught in task « %s »: %s\n' % (te.name, te.message)).encode('utf-8'))
+        sys.stderr.write((u'** tasker: Exiting.\n').encode('utf-8'))
