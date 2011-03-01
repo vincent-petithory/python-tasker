@@ -1,11 +1,23 @@
-commit 837dac18e416486d2e878e0bf54ddc510c44640f
+commit 7dd0530450115f8f294749b03bd72aa95cacc55c
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Tue Mar 1 03:06:17 2011 +0100
+
+    Add the original exception type information in TaskError
+
+ bin/tasker         |    2 +-
+ tasker/__init__.py |    7 +++++--
+ tasks.py           |    2 +-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+
+commit 8fc094b1b4ca9f58e075b93586e2dcaaf8c602fb
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Tue Mar 1 03:05:44 2011 +0100
 
     Fail on non-zero return codes in subprocess calls
 
+ ChangeLog       |   14 ++++++++++++--
  tasker/utils.py |   20 ++++++++++++++++----
- 1 files changed, 16 insertions(+), 4 deletions(-)
+ 2 files changed, 28 insertions(+), 6 deletions(-)
 
 commit 25bd2cc966664a7df82ed622efc9e1db49776d3a
 Author: Vincent Petithory <vincent.petithory@gmail.com>

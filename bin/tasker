@@ -89,5 +89,5 @@ for task_name in TASKS:
     try:
         task.process()
     except TaskError as te:
-        sys.stderr.write('** tasker: Exception caught in task « %s »: %s\n' % (te.name, te.message))
+        sys.stderr.write('** tasker: Exception « %s » caught in task « %s »: %s\n' % (te.exception_type, te.name, te.message))
         sys.stderr.write('** tasker: Exiting.\n')

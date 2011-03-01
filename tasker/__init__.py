@@ -13,9 +13,10 @@ TASKS = None
 
 class TaskError(Exception):
     """An error while running a task."""
-    def __init__(self, message, name):
+    def __init__(self, message, name, exception_type):
         self.message = message
         self.name = name
+        self.exception_type = exception_type
     
 
 class Task(object):
@@ -40,7 +41,9 @@ class Task(object):
             self.func()
         except Exception as e:
             #message = 'Exception caught in task « %s »: %s\n' % (self.name, e)
-            raise TaskError(str(e), self.name)
+            st = str(type(e))
+            exception_type = st[st.find('\'')+1:st.rfind('\'')]
+            raise TaskError(str(e), self.name, exception_type)
             sys.exit(os.EX_SOFTWARE)
     
     def resolve(self, other_tasks, module):

@@ -17,7 +17,7 @@ def hello():
     
     o,e,c = shellp('echo "ok"')
     print(o, e, c)
-    shell('echo "ok"')
+    shell('rfgnoreng "ok"')
 
 @task()
 def clean():
