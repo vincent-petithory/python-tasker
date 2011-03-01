@@ -3,10 +3,16 @@
 import subprocess
 import shlex
 
+def fail_on_error(raw_command, returncode):
+    if returncode > 0:
+        raise RuntimeError('command « %s » failed with exit code %d' % (raw_command, returncode))
+
 def sh(*args):
     raw_command = ' '.join(arg for arg in args)
     command = shlex.split(raw_command)
-    return subprocess.call(command, shell=False)
+    returncode = subprocess.call(command, shell=False)
+    fail_on_error(raw_command, returncode)
+    return returncode
 
 def shp(*args):
     raw_command = ' '.join(arg for arg in args)
@@ -18,10 +24,14 @@ def shp(*args):
         shell=False
     )
     stdout, stderr = p.communicate()
-    return stdout, stderr, p.returncode
+    returncode = p.returncode
+    fail_on_error(raw_command, returncode)
+    return stdout, stderr, returncode
 
 def shell(cmd):
-    return subprocess.call(cmd, shell=True)
+    returncode = subprocess.call(cmd, shell=True)
+    fail_on_error(cmd, returncode)
+    return returncode
 
 def shellp(cmd):
     p = subprocess.Popen(
@@ -31,4 +41,6 @@ def shellp(cmd):
         shell=True
     )
     stdout, stderr = p.communicate()
-    return stdout, stderr, p.returncode
+    returncode = p.returncode
+    fail_on_error(cmd, returncode)
+    return stdout, stderr, returncode

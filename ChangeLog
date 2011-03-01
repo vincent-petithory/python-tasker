@@ -1,13 +1,23 @@
-commit 0871831c282f43438c0c8cc99ea95fec17c326a1
+commit 837dac18e416486d2e878e0bf54ddc510c44640f
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Tue Mar 1 03:05:44 2011 +0100
+
+    Fail on non-zero return codes in subprocess calls
+
+ tasker/utils.py |   20 ++++++++++++++++----
+ 1 files changed, 16 insertions(+), 4 deletions(-)
+
+commit 25bd2cc966664a7df82ed622efc9e1db49776d3a
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Feb 24 14:03:11 2011 +0100
 
     Attempt at inserting auto imports of tasker elements in tasks.py
 
+ ChangeLog          |   16 ++++++++++++++--
  bin/tasker         |   13 ++++++++++++-
  tasker/__init__.py |    4 ++++
  tasks.py           |    5 +----
- 3 files changed, 17 insertions(+), 5 deletions(-)
+ 4 files changed, 31 insertions(+), 7 deletions(-)
 
 commit 71b73f79af17b835890df703ead56a035a581376
 Author: Vincent Petithory <vincent.petithory@gmail.com>
