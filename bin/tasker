@@ -75,6 +75,15 @@ except Exception:
     sys.stderr.write('Exception caught in your « %s » init code.\n' % TASK_MODULENAME)
     raise
 
+# execute the init function if defined
+try:
+    INIT_FUNC = getattr(TASK_MODULE, 'init')
+except AttributeError:
+    # no init function was defined. Skip.
+    pass
+else:
+    INIT_FUNC()
+
 # exit if not tasks defined
 if len(TASK_LIST) == 0:
     sys.stdout.write('No tasks in « %s ». Exit.\n' % DEFAULT_TASKNAME)

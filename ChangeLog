@@ -1,11 +1,25 @@
-commit 23d004f3ad6c877cd68857377aa8f27d92f9648a
+commit 05e529e26e261738059d568d16df66789d2ef2b8
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 9 21:24:45 2011 +0100
+
+    Add an init() function
+    
+     * Add detection of an optional init() function in
+       a tasks file. the function will be executed after startup
+
+ bin/tasker      |    9 +++++++++
+ tasker/tasks.py |    3 +++
+ 2 files changed, 12 insertions(+), 0 deletions(-)
+
+commit 507129e7f20a0bcb38d7c3745deda0bbf9cb91f8
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Mar 9 20:54:34 2011 +0100
 
     Delete old print statements
 
+ ChangeLog          |   15 ++++++++++++---
  tasker/__init__.py |    2 --
- 1 files changed, 0 insertions(+), 2 deletions(-)
+ 2 files changed, 12 insertions(+), 5 deletions(-)
 
 commit 2a26ccae4d7961dd3f67ef917a633f50ed1df462
 Author: Vincent Petithory <vincent.petithory@gmail.com>

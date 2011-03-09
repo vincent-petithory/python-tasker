@@ -3,6 +3,9 @@ from tasker import task
 
 DEFAULT = 'main'
 
+def init():
+    pass
+
 @task()
 def main():
     pass
