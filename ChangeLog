@@ -1,12 +1,30 @@
-commit 0881b66938a0e40abcd55d8b9d9a4b74fc57c422
+commit 0bddee8ca49e9b5996b83d997a341d9139c9c4bc
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 9 20:42:21 2011 +0100
+
+    Fix importing a task file that is not in the current directory
+    
+     * Change the method to import the tasks module
+       Using imp module instead of __import__ to allow to import
+       a module that is not in the path
+     * Moved the sample tasks.py module in a tests/ directory
+
+ ChangeLog      |   21 +++++++++++++++++++--
+ bin/tasker     |   14 +++++++++++---
+ tasks.py       |   25 -------------------------
+ tests/tasks.py |   28 ++++++++++++++++++++++++++++
+ 4 files changed, 58 insertions(+), 30 deletions(-)
+
+commit e383ed46a0c8b656e2068fa6fc825418a8e03cea
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Mar 9 01:29:28 2011 +0100
 
     Add an option to create a template task file
 
+ ChangeLog       |   15 +++++++++++++--
  bin/tasker      |   34 +++++++++++++++++++++++++++++++---
  tasker/tasks.py |    8 ++++++++
- 2 files changed, 39 insertions(+), 3 deletions(-)
+ 3 files changed, 52 insertions(+), 5 deletions(-)
 
 commit baaae216975380884ce54a37c042b39c55242bb6
 Author: Vincent Petithory <vincent.petithory@gmail.com>

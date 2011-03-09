@@ -3,6 +3,7 @@
 
 import os
 import sys
+import imp
 
 import optparse
 
@@ -52,16 +53,23 @@ if options.create_task_file:
     else:
         sys.exit(0)
 
+CWD = os.getcwd()
+MODULE_PATH = os.path.realpath(options.task_module)
+MODULE_DIRNAME = os.path.dirname(MODULE_PATH)
+MODULE_BASENAME = os.path.basename(MODULE_PATH)
 
-TASK_MODULENAME, ext = os.path.splitext(options.task_module)
+TASK_MODULENAME, ext = os.path.splitext(MODULE_BASENAME)
 del ext
 TASKS = args
 
+# import the tasks module
 try:
-    TASK_MODULE = __import__(TASK_MODULENAME)
+    MODULE_FILE = open(MODULE_PATH, 'r')
+    TASK_MODULE = imp.load_module(TASK_MODULENAME, MODULE_FILE, MODULE_BASENAME, ('.py', 'r', imp.PY_SOURCE))
+    MODULE_FILE.close()
     TASK_MODULE.__dict__.update(EXTRA_IMPORTS)
 except ImportError as ie:
-    sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n' % (TASK_MODULENAME, os.getcwd(), ie))
+    sys.stderr.write('Could not import the « %s » file in the directory « %s ».Reason: %s\n' % (TASK_MODULENAME, MODULE_DIRNAME, ie))
     sys.exit(os.EX_NOINPUT)
 except Exception:
     sys.stderr.write('Exception caught in your « %s » init code.\n' % TASK_MODULENAME)

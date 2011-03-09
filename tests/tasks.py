@@ -3,6 +3,9 @@ from tasker import task
 
 DEFAULT = 'main'
 
+def init():
+    print('initializing...')
+
 @task('hello', 'clean')
 def main():
     print('task:main')
