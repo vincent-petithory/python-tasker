@@ -1,11 +1,22 @@
-commit 390dd5e77dc87ef9486ac1f341ed41ec937b284a
+commit 0881b66938a0e40abcd55d8b9d9a4b74fc57c422
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 9 01:29:28 2011 +0100
+
+    Add an option to create a template task file
+
+ bin/tasker      |   34 +++++++++++++++++++++++++++++++---
+ tasker/tasks.py |    8 ++++++++
+ 2 files changed, 39 insertions(+), 3 deletions(-)
+
+commit baaae216975380884ce54a37c042b39c55242bb6
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Mar 1 12:47:21 2001 +0100
 
     Make tasker to not generate py[co] files
 
+ ChangeLog  |   15 ++++++++++++---
  bin/tasker |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 2 files changed, 13 insertions(+), 4 deletions(-)
 
 commit b55d38778fcd989d337a61fc161af281cd8bf2b2
 Author: Vincent Petithory <vincent.petithory@gmail.com>

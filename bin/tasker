@@ -20,10 +20,38 @@ EXTRA_IMPORTS = {
 }
 
 parser = optparse.OptionParser()
-parser.add_option('-f', '--file', dest='task_module',
-                  help='use FILE as the tasks file, defaults to «tasks»', default='tasks', metavar='FILE')
+parser.add_option('-f', '--file',
+                dest='task_module', default='tasks.py',
+                metavar='FILE',
+                help='''use FILE as the tasks file
+                defaults to « tasks »''',
+)
+parser.add_option('-c', '--create',
+                dest='create_task_file', default=False, action='store_true',
+                help='''creates a new template FILE, ready to use.
+                defaults to « tasks.py »''',
+)
 
 (options, args) = parser.parse_args()
+
+if options.create_task_file:
+    task_file = options.task_module
+    if os.path.exists(task_file):
+        sys.stderr.write('« %s » already exists and will not be overwritten.\n' % task_file)
+        sys.exit(10)
+    try:
+        from tasker import tasks
+        template_task_file = open(tasks.__file__, 'r')
+        f = open(task_file, 'w')
+        f.write(template_task_file.read())
+        template_task_file.close()
+        f.close()
+    except OSError as ose:
+        sys.stderr.write('Could not create the task file at « %s ».Reason: %s\n' % (task_file, ose))
+        sys.exit(11)
+    else:
+        sys.exit(0)
+
 
 TASK_MODULENAME, ext = os.path.splitext(options.task_module)
 del ext
@@ -33,7 +61,7 @@ try:
     TASK_MODULE = __import__(TASK_MODULENAME)
     TASK_MODULE.__dict__.update(EXTRA_IMPORTS)
 except ImportError as ie:
-    sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n'  % (TASK_MODULENAME, os.getcwd(), ie))
+    sys.stderr.write('Could not import the « %s » file in the current directory « %s ».Reason: %s\n' % (TASK_MODULENAME, os.getcwd(), ie))
     sys.exit(os.EX_NOINPUT)
 except Exception:
     sys.stderr.write('Exception caught in your « %s » init code.\n' % TASK_MODULENAME)
