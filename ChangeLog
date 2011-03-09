@@ -1,4 +1,13 @@
-commit 0bddee8ca49e9b5996b83d997a341d9139c9c4bc
+commit 23d004f3ad6c877cd68857377aa8f27d92f9648a
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 9 20:54:34 2011 +0100
+
+    Delete old print statements
+
+ tasker/__init__.py |    2 --
+ 1 files changed, 0 insertions(+), 2 deletions(-)
+
+commit 2a26ccae4d7961dd3f67ef917a633f50ed1df462
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Mar 9 20:42:21 2011 +0100
 
@@ -9,11 +18,11 @@ Date:   Wed Mar 9 20:42:21 2011 +0100
        a module that is not in the path
      * Moved the sample tasks.py module in a tests/ directory
 
- ChangeLog      |   21 +++++++++++++++++++--
+ ChangeLog      |   22 ++++++++++++++++++++--
  bin/tasker     |   14 +++++++++++---
  tasks.py       |   25 -------------------------
  tests/tasks.py |   28 ++++++++++++++++++++++++++++
- 4 files changed, 58 insertions(+), 30 deletions(-)
+ 4 files changed, 59 insertions(+), 30 deletions(-)
 
 commit e383ed46a0c8b656e2068fa6fc825418a8e03cea
 Author: Vincent Petithory <vincent.petithory@gmail.com>

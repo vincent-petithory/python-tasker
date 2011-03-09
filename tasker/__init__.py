@@ -40,7 +40,6 @@ class Task(object):
             #print 'exec', type(self.func)
             self.func()
         except Exception as e:
-            #message = 'Exception caught in task « %s »: %s\n' % (self.name, e)
             st = str(type(e))
             exception_type = st[st.find('\'')+1:st.rfind('\'')]
             raise TaskError(str(e), self.name, exception_type)
@@ -48,7 +47,6 @@ class Task(object):
     
     def resolve(self, other_tasks, module):
         self.depends = []
-        #print self.namedepends
         for namedepend in self.namedepends:
             for other_task in other_tasks:
                 if namedepend == other_task.name:
