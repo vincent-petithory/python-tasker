@@ -18,6 +18,7 @@ EXTRA_IMPORTS = {
     'shp': tasker.utils.shp,
     'shell': tasker.utils.shell,
     'shellp': tasker.utils.shellp,
+    'tar': tasker.utils.tar,
 }
 
 parser = optparse.OptionParser()

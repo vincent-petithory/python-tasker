@@ -1,11 +1,22 @@
-commit c6cbbffdb3527436c67111a268974e39b190239e
+commit f5a4ad46ddc2f55e79746bdce914633e2130c765
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Mar 10 22:04:12 2011 +0100
+
+    Add a tar util to tar a directory
+
+ bin/tasker      |    1 +
+ tasker/utils.py |   24 ++++++++++++++++++++++++
+ 2 files changed, 25 insertions(+), 0 deletions(-)
+
+commit c92ef8d9ee3620148dba68aba45b77f35a7b02f4
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Mar 10 21:43:27 2011 +0100
 
     Change to the tasks module directory
 
+ ChangeLog  |   14 ++++++++++++--
  bin/tasker |    3 +++
- 1 files changed, 3 insertions(+), 0 deletions(-)
+ 2 files changed, 15 insertions(+), 2 deletions(-)
 
 commit 8cf7334c529b819f36f44ba270ecca062e77173b
 Author: Vincent Petithory <vincent.petithory@gmail.com>
