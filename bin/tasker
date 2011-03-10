@@ -62,6 +62,9 @@ TASK_MODULENAME, ext = os.path.splitext(MODULE_BASENAME)
 del ext
 TASKS = args
 
+# cd in the task module directory by default
+os.chdir(MODULE_DIRNAME)
+
 # import the tasks module
 try:
     MODULE_FILE = open(MODULE_PATH, 'r')

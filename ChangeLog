@@ -1,4 +1,13 @@
-commit 05e529e26e261738059d568d16df66789d2ef2b8
+commit c6cbbffdb3527436c67111a268974e39b190239e
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Mar 10 21:43:27 2011 +0100
+
+    Change to the tasks module directory
+
+ bin/tasker |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+commit 8cf7334c529b819f36f44ba270ecca062e77173b
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Mar 9 21:24:45 2011 +0100
 
@@ -7,9 +16,10 @@ Date:   Wed Mar 9 21:24:45 2011 +0100
      * Add detection of an optional init() function in
        a tasks file. the function will be executed after startup
 
+ ChangeLog       |   18 ++++++++++++++++--
  bin/tasker      |    9 +++++++++
  tasker/tasks.py |    3 +++
- 2 files changed, 12 insertions(+), 0 deletions(-)
+ 3 files changed, 28 insertions(+), 2 deletions(-)
 
 commit 507129e7f20a0bcb38d7c3745deda0bbf9cb91f8
 Author: Vincent Petithory <vincent.petithory@gmail.com>
