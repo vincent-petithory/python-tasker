@@ -68,3 +68,8 @@ def tar(directory, tarfilepath):
             for f in files:
                 tar_file.add(os.path.join(prefix, f))
     tar_file.close()
+
+def call_task(task_file, *tasks):
+    from tasker import Tasker
+    subtasker = Tasker(task_file)
+    subtasker.run(tasks)

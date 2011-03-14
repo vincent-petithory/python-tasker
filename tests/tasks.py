@@ -26,3 +26,6 @@ def hello():
 def clean():
     print('task:clean')
 
+@task()
+def subtask():
+    call_task(__file__, 'subtask')
