@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-version_info = (0,1,0)
+version_info = (0,2,0)
 
 import sys
 import os

@@ -1,12 +1,22 @@
-commit 95d7a95c9d41661e3044772fcad42cc15b09fd98
+commit 69ff9eea7e3f0a9184d140878afc5fae90cd0aac
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 22:55:28 2011 +0100
+
+    Dump version 0.2.0
+
+ tasker/__init__.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit fbea4af1851b2a46619e5ba455d9a22df8cb0f4f
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 22:53:17 2011 +0100
 
     Add an example of the tar utility
 
+ ChangeLog              |   15 +++++++++++++--
  tests/data.tar.gz      |  Bin 0 -> 208 bytes
  tests/tasks.py         |    4 ++++
- 2 files changed, 4 insertions(+), 0 deletions(-)
+ 3 files changed, 17 insertions(+), 2 deletions(-)
 
 commit 984a9948d781cd5a03596431d43cbf66724ef0a0
 Author: Vincent Petithory <vincent.petithory@gmail.com>
