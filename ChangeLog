@@ -1,11 +1,25 @@
-commit 6e16b44927188676624e5623f72e1345237e978c
+commit d99a9f079214c92db1f642db9db9ab98d4179203
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 22:47:22 2011 +0100
+
+    Add a BASEDIR attribute to the tasks module
+    
+     * the tasks logic will change to the BASEDIR directory before executing
+       each target
+
+ tasker/__init__.py |   22 ++++++++++++++++++++--
+ tests/tasks.py     |    5 +++++
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+commit 76730dcd6bbaa8569f9ac80a8b6da24c2a683692
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 22:36:54 2011 +0100
 
     Change to the task module directory before each target processing
 
+ ChangeLog          |   14 ++++++++++++--
  tasker/__init__.py |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
+ 2 files changed, 13 insertions(+), 2 deletions(-)
 
 commit 75057f7c69f56272001333b040b0376bd4041fdf
 Author: Vincent Petithory <vincent.petithory@gmail.com>

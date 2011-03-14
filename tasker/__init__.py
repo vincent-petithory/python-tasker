@@ -24,6 +24,7 @@ class Tasker(object):
     default_taskname = None
     task_module = None
     task_modulename = None
+    task_basedir = None
     tasks = None
     
     EXTRA_IMPORTS = {
@@ -49,6 +50,8 @@ class Tasker(object):
         if self.task_modulename.startswith('.'):
             self.task_modulename = self.task_modulename[1:]
         
+        self.task_basedir = self.module_dirname
+        
         # cd in the task module directory by default
         os.chdir(self.module_dirname)
         
@@ -64,7 +67,11 @@ class Tasker(object):
         except Exception:
             sys.stderr.write('Exception caught in your « %s » init code.\n' % self.task_modulename)
             raise
-        
+    
+    def init_context(self):
+        # change to the correct directory
+        os.chdir(self.task_basedir)
+    
     def run(self, task_list):
         self.task_list = task_list
         # exit if not tasks defined
@@ -89,6 +96,17 @@ class Tasker(object):
                 
         if len(self.task_list) == 0:
            self.task_list = [self.default_taskname]
+        
+        # evaluate the basedir of the task module
+        try:
+            relative_dir = getattr(self.task_module, 'BASEDIR')
+        except AttributeError:
+            relative_dir = '.'
+        
+        self.task_basedir = os.path.join(self.module_dirname, relative_dir)
+        
+        # init the context
+        self.init_context()
         
         # execute the init function if defined
         try:
@@ -157,7 +175,7 @@ class Task(object):
             for dep in self.depends:
                 dep.process()
         try:
-            os.chdir(self.tasker.module_dirname)
+            self.tasker.init_context()
             self.func()
         except Exception as e:
             st = str(type(e))
