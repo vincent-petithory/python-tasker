@@ -34,3 +34,7 @@ def clean():
 @task()
 def subtask():
     call_task(__file__, 'subtask')
+
+@task()
+def tar_test():
+    tar('data', 'data.tar.gz')

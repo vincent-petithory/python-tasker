@@ -1,4 +1,14 @@
-commit d99a9f079214c92db1f642db9db9ab98d4179203
+commit 95d7a95c9d41661e3044772fcad42cc15b09fd98
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 22:53:17 2011 +0100
+
+    Add an example of the tar utility
+
+ tests/data.tar.gz      |  Bin 0 -> 208 bytes
+ tests/tasks.py         |    4 ++++
+ 2 files changed, 4 insertions(+), 0 deletions(-)
+
+commit 984a9948d781cd5a03596431d43cbf66724ef0a0
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 22:47:22 2011 +0100
 
@@ -7,9 +17,10 @@ Date:   Mon Mar 14 22:47:22 2011 +0100
      * the tasks logic will change to the BASEDIR directory before executing
        each target
 
+ ChangeLog          |   18 ++++++++++++++++--
  tasker/__init__.py |   22 ++++++++++++++++++++--
  tests/tasks.py     |    5 +++++
- 2 files changed, 25 insertions(+), 2 deletions(-)
+ 3 files changed, 41 insertions(+), 4 deletions(-)
 
 commit 76730dcd6bbaa8569f9ac80a8b6da24c2a683692
 Author: Vincent Petithory <vincent.petithory@gmail.com>
