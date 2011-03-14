@@ -1,12 +1,27 @@
-commit f5a4ad46ddc2f55e79746bdce914633e2130c765
+commit 05b30869d609d28d257d0974185238f9cbba8ed4
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 22:25:32 2011 +0100
+
+    Wrapped a task list object into a Tasker object
+    
+     * encapuslates all the logic of running a tasks module
+       into a Tasker class
+
+ bin/tasker           |  101 +----------------------------------
+ tasker/__init__.py   |  141 +++++++++++++++++++++++++++++++++++++++++++++----
+ tasker/decorators.py |   14 +++--
+ 3 files changed, 141 insertions(+), 115 deletions(-)
+
+commit 850f8094443a70122bdd5b36420380e34ee2ce3f
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Mar 10 22:04:12 2011 +0100
 
     Add a tar util to tar a directory
 
+ ChangeLog       |   15 +++++++++++++--
  bin/tasker      |    1 +
  tasker/utils.py |   24 ++++++++++++++++++++++++
- 2 files changed, 25 insertions(+), 0 deletions(-)
+ 3 files changed, 38 insertions(+), 2 deletions(-)
 
 commit c92ef8d9ee3620148dba68aba45b77f35a7b02f4
 Author: Vincent Petithory <vincent.petithory@gmail.com>

@@ -3,23 +3,12 @@
 
 import os
 import sys
-import imp
 
 import optparse
 
-from tasker import TASK_LIST, Task, TaskError, DEFAULT_TASKNAME, TASK_MODULE, TASK_MODULENAME, TASKS
+from tasker import Tasker
 
 import tasker.utils
-
-EXTRA_IMPORTS = {
-    'os': os,
-    'sys': sys,
-    'sh': tasker.utils.sh,
-    'shp': tasker.utils.shp,
-    'shell': tasker.utils.shell,
-    'shellp': tasker.utils.shellp,
-    'tar': tasker.utils.tar,
-}
 
 parser = optparse.OptionParser()
 parser.add_option('-f', '--file',
@@ -54,89 +43,5 @@ if options.create_task_file:
     else:
         sys.exit(0)
 
-CWD = os.getcwd()
-MODULE_PATH = os.path.realpath(options.task_module)
-MODULE_DIRNAME = os.path.dirname(MODULE_PATH)
-MODULE_BASENAME = os.path.basename(MODULE_PATH)
-
-TASK_MODULENAME, ext = os.path.splitext(MODULE_BASENAME)
-del ext
-TASKS = args
-
-# cd in the task module directory by default
-os.chdir(MODULE_DIRNAME)
-
-# import the tasks module
-try:
-    MODULE_FILE = open(MODULE_PATH, 'r')
-    TASK_MODULE = imp.load_module(TASK_MODULENAME, MODULE_FILE, MODULE_BASENAME, ('.py', 'r', imp.PY_SOURCE))
-    MODULE_FILE.close()
-    TASK_MODULE.__dict__.update(EXTRA_IMPORTS)
-except ImportError as ie:
-    sys.stderr.write('Could not import the « %s » file in the directory « %s ».Reason: %s\n' % (TASK_MODULENAME, MODULE_DIRNAME, ie))
-    sys.exit(os.EX_NOINPUT)
-except Exception:
-    sys.stderr.write('Exception caught in your « %s » init code.\n' % TASK_MODULENAME)
-    raise
-
-# execute the init function if defined
-try:
-    INIT_FUNC = getattr(TASK_MODULE, 'init')
-except AttributeError:
-    # no init function was defined. Skip.
-    pass
-else:
-    INIT_FUNC()
-
-# exit if not tasks defined
-if len(TASK_LIST) == 0:
-    sys.stdout.write('No tasks in « %s ». Exit.\n' % DEFAULT_TASKNAME)
-    sys.exit(0)
-
-# get the default target
-if len(TASKS) == 0:
-    try:
-        DEFAULT_TASKNAME = getattr(TASK_MODULE, 'DEFAULT')
-    except AttributeError:
-        t1 = TASK_LIST[0]
-        DEFAULT_TASKNAME = t1[len(t1)-1]
-    else:
-        try:
-            # check default task name exists, otherwise, exit
-            getattr(TASK_MODULE, DEFAULT_TASKNAME)
-        except AttributeError:
-            sys.stderr.write('Could not find the specified default task « %s ».\n' % DEFAULT_TASKNAME)
-            sys.exit(os.EX_NOTFOUND)
-        
-    
-
-if len(TASKS) == 0:
-    TASKS = [DEFAULT_TASKNAME]
-
-task_objects = []
-
-def get_task_with_name(name):
-    for task_object in task_objects:
-        if task_object.name == name:
-            return task_object
-    return None
-
-for raw_task in TASK_LIST:
-    n = len(raw_task)
-    main_taskname = raw_task[n-1]
-    dep_tasknames = []
-    if n > 1:
-        dep_tasknames = raw_task[:n-1]
-    t = Task(name=main_taskname, namedepends=dep_tasknames)
-    task_objects.append(t)
-
-for task_object in task_objects:
-    task_object.resolve(task_objects, TASK_MODULE)
-
-for task_name in TASKS:
-    task = get_task_with_name(task_name)
-    try:
-        task.process()
-    except TaskError as te:
-        sys.stderr.write('** tasker: Exception « %s » caught in task « %s »: %s\n' % (te.exception_type, te.name, te.message))
-        sys.stderr.write('** tasker: Exiting.\n')
+main_tasker = Tasker(options.task_module)
+main_tasker.run(args)
