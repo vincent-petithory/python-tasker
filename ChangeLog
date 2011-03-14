@@ -1,11 +1,21 @@
-commit 69ff9eea7e3f0a9184d140878afc5fae90cd0aac
+commit b54563de10289f4b2908819be17b5d8d8684bc62
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 23:12:11 2011 +0100
+
+    Catch error when the main task cant be resolved
+
+ tasker/__init__.py |   16 ++++++++++++----
+ 1 files changed, 12 insertions(+), 4 deletions(-)
+
+commit 49cf3854fc0b1b403f240682bab44d389cf471e8
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 22:55:28 2011 +0100
 
     Dump version 0.2.0
 
+ ChangeLog          |   14 ++++++++++++--
  tasker/__init__.py |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 2 files changed, 13 insertions(+), 3 deletions(-)
 
 commit fbea4af1851b2a46619e5ba455d9a22df8cb0f4f
 Author: Vincent Petithory <vincent.petithory@gmail.com>

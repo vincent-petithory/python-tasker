@@ -135,10 +135,19 @@ class Tasker(object):
             task_objects.append(t)
 
         for task_object in task_objects:
-            task_object.resolve(task_objects, self.task_module)
+            try:
+                task_object.resolve(task_objects, self.task_module)
+            except TaskError as te:
+                sys.stderr.write('** tasker: Exception « %s » caught while resolving task « %s »: %s\n' % (te.exception_type, te.name, te.message))
+                sys.stderr.write('** tasker: Exiting.\n')
+                sys.exit(1)
 
         for task_name in self.task_list:
             task = get_task_with_name(task_name)
+            if task is None:
+                sys.stderr.write('** tasker: « %s » No such task in « %s ».\n' % (task_name, self.task_modulename))
+                sys.stderr.write('** tasker: Exiting.\n')
+                sys.exit(4)
             try:
                 task.process()
             except TaskError as te:
@@ -193,12 +202,11 @@ class Task(object):
         # notify which deps could not be resolved
         unresolved_deps = set(self.namedepends).difference(set([t.name for t in self.depends]))
         if len(unresolved_deps) > 0:
-            raise AttributeError('Could not resolve task(s) « %s »' % ', '.join(unresolved_deps), self.name, 'TaskError')
+            raise TaskError('Could not resolve task(s) « %s »' % ', '.join(unresolved_deps), self.name, 'exceptions.AttributeError')
         try:
             self.func = getattr(module, self.name)
         except AttributeError:
-            sys.stderr.write('Could not find function « %s » in « %s ».\n' % (self.name, self.tasker.task_modulename))
-            raise
+            raise TaskError('Could not find function « %s » in « %s ».' % (self.name, self.tasker.task_modulename))
 
 # import the task decorator, as a shortcut when writing the tasks.py files
 from tasker.decorators import task
