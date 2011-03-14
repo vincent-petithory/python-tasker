@@ -1,12 +1,22 @@
-commit d765587f776d55bab47387e7aacf1f9c142a404a
+commit 6e16b44927188676624e5623f72e1345237e978c
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Mon Mar 14 22:36:54 2011 +0100
+
+    Change to the task module directory before each target processing
+
+ tasker/__init__.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 75057f7c69f56272001333b040b0376bd4041fdf
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 22:32:11 2011 +0100
 
     Add a simple utiliy to call another tasks module
 
+ ChangeLog       |   15 +++++++++++++--
  tasker/utils.py |    5 +++++
  tests/tasks.py  |    3 +++
- 2 files changed, 8 insertions(+), 0 deletions(-)
+ 3 files changed, 21 insertions(+), 2 deletions(-)
 
 commit 8989237c768a01fb67983b7b33482670594e0230
 Author: Vincent Petithory <vincent.petithory@gmail.com>

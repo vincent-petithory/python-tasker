@@ -157,6 +157,7 @@ class Task(object):
             for dep in self.depends:
                 dep.process()
         try:
+            os.chdir(self.tasker.module_dirname)
             self.func()
         except Exception as e:
             st = str(type(e))
