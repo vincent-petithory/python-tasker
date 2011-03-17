@@ -1,11 +1,21 @@
-commit b54563de10289f4b2908819be17b5d8d8684bc62
+commit 90c4ebdba344a4902a5eec5e52cb2fe263e52aee
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Thu Mar 17 02:02:59 2011 +0100
+
+    Delete unwanted indexed test file
+
+ tests/data.tar.gz |  Bin 208 -> 0 bytes
+ 1 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3b6d1eef1bb310c4e4b2f9c0ed4eb9235303809e
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Mon Mar 14 23:12:11 2011 +0100
 
     Catch error when the main task cant be resolved
 
+ ChangeLog          |   14 ++++++++++++--
  tasker/__init__.py |   16 ++++++++++++----
- 1 files changed, 12 insertions(+), 4 deletions(-)
+ 2 files changed, 24 insertions(+), 6 deletions(-)
 
 commit 49cf3854fc0b1b403f240682bab44d389cf471e8
 Author: Vincent Petithory <vincent.petithory@gmail.com>
