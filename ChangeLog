@@ -1,11 +1,27 @@
-commit 90c4ebdba344a4902a5eec5e52cb2fe263e52aee
+commit cfe3ae21ab4f4878b447c9cc4bbc376cce9ce850
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Fri Mar 18 12:30:27 2011 +0100
+
+    Add a package data directory
+    
+     * add the template tasks.py in the data directory
+
+ ChangeLog            |   19 +++++++++++++++++--
+ bin/tasker           |   12 ++++++++----
+ setup.py             |    3 ++-
+ tasker/data/tasks.py |   16 ++++++++++++++++
+ tasker/tasks.py      |   11 -----------
+ 5 files changed, 43 insertions(+), 18 deletions(-)
+
+commit 60da23ac6bbfa10d521fa9c4874e6f6e3c23c5b2
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Thu Mar 17 02:02:59 2011 +0100
 
     Delete unwanted indexed test file
 
+ ChangeLog         |   14 ++++++++++++--
  tests/data.tar.gz |  Bin 208 -> 0 bytes
- 1 files changed, 0 insertions(+), 0 deletions(-)
+ 2 files changed, 12 insertions(+), 2 deletions(-)
 
 commit 3b6d1eef1bb310c4e4b2f9c0ed4eb9235303809e
 Author: Vincent Petithory <vincent.petithory@gmail.com>

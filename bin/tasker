@@ -6,7 +6,7 @@ import sys
 
 import optparse
 
-from tasker import Tasker
+import tasker
 
 import tasker.utils
 
@@ -31,8 +31,11 @@ if options.create_task_file:
         sys.stderr.write('« %s » already exists and will not be overwritten.\n' % task_file)
         sys.exit(10)
     try:
-        from tasker import tasks
-        template_task_file = open(tasks.__file__, 'r')
+        task_template_filepath = os.path.join(
+            os.path.dirname(tasker.__file__),
+            'data/tasks.py'
+        )
+        template_task_file = open(task_template_filepath, 'r')
         f = open(task_file, 'w')
         f.write(template_task_file.read())
         template_task_file.close()
@@ -43,5 +46,5 @@ if options.create_task_file:
     else:
         sys.exit(0)
 
-main_tasker = Tasker(options.task_module)
+main_tasker = tasker.Tasker(options.task_module)
 main_tasker.run(args)
