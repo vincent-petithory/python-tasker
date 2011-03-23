@@ -8,8 +8,6 @@ import optparse
 
 import tasker
 
-import tasker.utils
-
 parser = optparse.OptionParser()
 parser.add_option('-f', '--file',
                 dest='task_module', default='tasks.py',

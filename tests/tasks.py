@@ -1,6 +1,9 @@
 #-*- coding:utf-8 -*-
 from tasker import task
 
+from tasker.utils.shell import *
+from tasker.utils import call_task, tar
+
 # defaults to the first task defined, if omitted
 DEFAULT = 'main'
 
@@ -25,7 +28,6 @@ def hello():
     
     o,e,c = shellp('echo "ok"')
     print(o, e, c)
-    shell('rfgnoreng "ok"')
 
 @task()
 def clean():
@@ -33,7 +35,7 @@ def clean():
 
 @task()
 def subtask():
-    call_task(__file__, 'subtask')
+    call_task(__file__, 'clean')
 
 @task()
 def tar_test():

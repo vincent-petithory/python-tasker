@@ -6,8 +6,6 @@ import sys
 import os
 import imp
 
-import tasker.utils
-
 class Tasker(object):
     
     taskers = []
@@ -30,12 +28,6 @@ class Tasker(object):
     EXTRA_IMPORTS = {
         'os': os,
         'sys': sys,
-        'sh': tasker.utils.sh,
-        'shp': tasker.utils.shp,
-        'shell': tasker.utils.shell,
-        'shellp': tasker.utils.shellp,
-        'tar': tasker.utils.tar,
-        'call_task': tasker.utils.call_task,
     }
     
     def __init__(self, task_file):

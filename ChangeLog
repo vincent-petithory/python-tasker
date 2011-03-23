@@ -1,4 +1,23 @@
-commit cfe3ae21ab4f4878b447c9cc4bbc376cce9ce850
+commit d3ea8fb736e367deedecead211000a8a28128c83
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 23 12:45:12 2011 +0100
+
+    Add tasker.utils package that gathers utilities
+    
+     * moved utils module to tasker.utils package
+     * separated shell utilities from others
+     * removed the utilities from the extra import of a Tasker
+
+ bin/tasker               |    2 -
+ setup.py                 |    2 +-
+ tasker/__init__.py       |    8 -----
+ tasker/utils.py          |   75 ----------------------------------------------
+ tasker/utils/__init__.py |   31 +++++++++++++++++++
+ tasker/utils/shell.py    |   48 +++++++++++++++++++++++++++++
+ tests/tasks.py           |    6 ++-
+ 7 files changed, 84 insertions(+), 88 deletions(-)
+
+commit 12ebc942428832e1f91e14dd7a7f4ebb1fe66e2f
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Fri Mar 18 12:30:27 2011 +0100
 
@@ -6,12 +25,13 @@ Date:   Fri Mar 18 12:30:27 2011 +0100
     
      * add the template tasks.py in the data directory
 
- ChangeLog            |   19 +++++++++++++++++--
- bin/tasker           |   12 ++++++++----
+ ChangeLog            |   20 ++++++++++++++++++--
+ bin/tasker           |   11 +++++++----
  setup.py             |    3 ++-
+ tasker/__init__.py   |    2 +-
  tasker/data/tasks.py |   16 ++++++++++++++++
  tasker/tasks.py      |   11 -----------
- 5 files changed, 43 insertions(+), 18 deletions(-)
+ 6 files changed, 44 insertions(+), 19 deletions(-)
 
 commit 60da23ac6bbfa10d521fa9c4874e6f6e3c23c5b2
 Author: Vincent Petithory <vincent.petithory@gmail.com>
