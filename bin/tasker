@@ -17,11 +17,26 @@ parser.add_option('-f', '--file',
 )
 parser.add_option('-c', '--create',
                 dest='create_task_file', default=False, action='store_true',
-                help='''creates a new template FILE, ready to use.
-                defaults to « tasks.py »''',
+                help='''creates a new template task FILE, ready to use,
+                as specified with the --file option.''',
 )
 
-(options, args) = parser.parse_args()
+try:
+    tasker_user_dir = os.path.expanduser('~/.tasker')
+    if not os.path.exists(tasker_user_dir):
+        os.mkdir(tasker_user_dir)
+    tasker_modules_dir = os.path.join(tasker_user_dir, 'modules')
+    if not os.path.exists(tasker_modules_dir):
+        os.mkdir(tasker_modules_dir)
+    if os.path.exists(tasker_modules_dir):
+        if tasker_modules_dir not in sys.path:
+            sys.path.append(tasker_modules_dir)
+except OSError as ose:
+    sys.stderr.write('%s.\n' % ose)
+    sys.exit(12)
+
+
+options, args = parser.parse_args()
 
 if options.create_task_file:
     task_file = options.task_module

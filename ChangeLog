@@ -1,4 +1,19 @@
-commit d3ea8fb736e367deedecead211000a8a28128c83
+commit 799a0a3a990a39eed829ddb9c5abd93083906971
+Author: Vincent Petithory <vincent.petithory@gmail.com>
+Date:   Wed Mar 23 13:28:54 2011 +0100
+
+    Add a set of directories to be easily imported in tasks
+    
+     * the following directories will be considered as a root of packages:
+       ~/.tasker/modules
+       <tasks_file>/.tasker/
+
+ README             |    6 ------
+ bin/tasker         |   21 ++++++++++++++++++---
+ tasker/__init__.py |    5 +++++
+ 3 files changed, 23 insertions(+), 9 deletions(-)
+
+commit dcbde61038b6c2f14a52bf60a33b6d6b3b4dc02f
 Author: Vincent Petithory <vincent.petithory@gmail.com>
 Date:   Wed Mar 23 12:45:12 2011 +0100
 
@@ -8,6 +23,7 @@ Date:   Wed Mar 23 12:45:12 2011 +0100
      * separated shell utilities from others
      * removed the utilities from the extra import of a Tasker
 
+ ChangeLog                |   28 ++++++++++++++--
  bin/tasker               |    2 -
  setup.py                 |    2 +-
  tasker/__init__.py       |    8 -----
@@ -15,7 +31,7 @@ Date:   Wed Mar 23 12:45:12 2011 +0100
  tasker/utils/__init__.py |   31 +++++++++++++++++++
  tasker/utils/shell.py    |   48 +++++++++++++++++++++++++++++
  tests/tasks.py           |    6 ++-
- 7 files changed, 84 insertions(+), 88 deletions(-)
+ 8 files changed, 108 insertions(+), 92 deletions(-)
 
 commit 12ebc942428832e1f91e14dd7a7f4ebb1fe66e2f
 Author: Vincent Petithory <vincent.petithory@gmail.com>

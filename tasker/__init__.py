@@ -36,6 +36,11 @@ class Tasker(object):
         self.module_dirname = os.path.dirname(self.module_path)
         self.module_basename = os.path.basename(self.module_path)
         
+        tasker_modules_dir = os.path.join(self.module_dirname, '.tasker')
+        if os.path.exists(tasker_modules_dir):
+            if tasker_modules_dir not in sys.path:
+                sys.path.append(tasker_modules_dir)
+        
         self.task_modulename, ext = os.path.splitext(self.module_path)
         del ext
         self.task_modulename = self.task_modulename.replace('/', '.')
